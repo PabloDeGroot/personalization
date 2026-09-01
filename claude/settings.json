@@ -1,0 +1,18 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "oh-my-posh claude --config ~/.claude/claude.omp.json ",
+    "padding": 0
+  },
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "custom:velvet",
+  "autoContinueAtUsageLimit": false
+}

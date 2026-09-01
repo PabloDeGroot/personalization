@@ -1,0 +1,122 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#170B3B",
+          "foreground": "#EFDCF9",
+          "powerline_symbol": "\ue0b4",
+          "style": "powerline",
+          "template": "\uF0E7",
+          "type": "root"
+        },
+        {
+          "background": "#4c1f5e",
+          "foreground": "#EFDCF9",
+          "powerline_symbol": "\ue0b4",
+          "properties": {
+            "folder_icon": "...",
+            "folder_separator_icon": "/",
+            "home_icon": "~",
+            "max_depth": 3,
+            "style": "folder"
+          },
+          "style": "powerline",
+          "template": " {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "#69307A",
+          "foreground": "#EFDCF9",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#FF3C3C{{ end }}"
+          ],
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": " \uf08a{{ if gt .Code 0 }} {{.Code}}{{ end }} ",
+          "trailing_diamond": "\ue0b4",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "background": "#4c1f5e",
+          "foreground": "#E4F34A",
+          "leading_diamond": " \ue0b6",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "diamond",
+          "template": "\ue235{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}",
+          "trailing_diamond": "\ue0b4",
+          "type": "python"
+        },
+        {
+          "background": "#4c1f5e",
+          "foreground": "#42E66C",
+          "leading_diamond": " \ue0b6",
+          "properties": {
+            "fetch_version": false
+          },
+          "style": "diamond",
+          "template": "\ue718{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+          "trailing_diamond": "\ue0b4",
+          "type": "node"
+        },
+        
+        {
+          "background": "#69307A",
+          "foreground": "#EFDCF9",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "leading_diamond": " \ue0b6",
+
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .FormattedMs }} ",
+          "type": "executiontime"
+        },
+        {
+          "background": "#4c1f5e",
+          "foreground": "#EFDCF9",
+          "properties": {
+            "branch_template": "{{ trunc 25 .Branch }}",
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "diamond",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}",
+          "type": "git"
+        },
+        {
+          "type": "owm",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b4",
+          "background": "#170B3B",
+          "foreground": "#EFDCF9",
+          "template": " {{.Weather}} {{.Temperature}}{{.UnitIcon}}",
+          "properties": {
+            "api_key": "cc237f70f25ad2196e5c832caf254633",
+            "location": "LOGROÑO,ES",
+            "units": "metric",
+            "http_timeout": 400
+          }
+        }
+      ],
+      "type": "rprompt"
+    }
+  ],
+  "console_title_template": "{{ .Shell }} - {{ .Folder }}",
+  "final_space": true,
+  "version": 3
+}
