@@ -1,0 +1,15 @@
+[Unit]
+Description=Show fan/pump speed, CPU temp and load, and memory use on the case RGB
+Requires=openrgb.service
+After=openrgb.service
+
+[Service]
+Type=simple
+ExecStart=%h/personalization/openrgb/.venv/bin/python %h/personalization/openrgb/rgb_monitor.py
+# More CPU share under contention: keep the animation smooth when the CPU is saturated
+CPUWeight=400
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

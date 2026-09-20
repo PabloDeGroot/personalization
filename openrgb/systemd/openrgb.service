@@ -1,0 +1,14 @@
+[Unit]
+Description=OpenRGB SDK server with the Synthwave profile
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/openrgb --server --profile Synthwave
+# More CPU share under contention: its device threads do the USB writes for the animation
+CPUWeight=400
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
